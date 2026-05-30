@@ -1,13 +1,6 @@
-# Low-Cost Solar-Tracking System with PMDC Motor
+# [Low-Cost Solar-Tracking System with PMDC Motor](https://github.com/Atharvaj05/Solar-Tracker-using-PMDC-Motor/blob/main/Low%20cost%20Solar-Tracking%20system%20(with%20PMDC%20motor)%20.pdf)
 
-A closed-loop solar tracking system simulation developed using MATLAB and Simulink/Simscape. The system continuously aligns a solar panel with the sun's position from east to west to optimize solar energy capture.
-
-## Project Contributors
-* **Haren Upadhyaya**
-* **Debojyoti Sarkar**
-* **Giridhar G.R.**
-* **Atharva Jadhav**
-* **Submission Date:** 30/03/2026
+A closed-loop solar tracking system simulation developed using MATLAB. The system continuously aligns a solar panel with the sun's position from east to west to optimize solar energy capture.
 
 ---
 
@@ -17,7 +10,7 @@ Traditional trackers often rely on expensive stepper or shunt motors that requir
 ### Key Working Principles
 1. **Sunlight Detection:** Dual LDR sensors (GL5528) are mounted on the east and west boundaries of the solar panel frame.
 2. **Signal Conditioning:** The LDR resistances are fed into static voltage divider circuits to generate readable analog voltages.
-3. **Control Unit:** An Arduino Uno reads the sensor inputs, evaluates the differential error against a specified deadband threshold, and generates direction inputs alongside a dynamic PWM control signal.
+3. **Control Unit:** An embedded core logic loop reads the sensor inputs, evaluates the differential error against a specified deadband threshold, and generates direction inputs alongside a dynamic PWM control signal.
 4. **Actuation:** An H-Bridge circuit regulates the current flow polarity through the PMDC motor to enable bi-directional rotation via a worm gear mechanism.
 
 ---
@@ -37,11 +30,11 @@ Where $R_F$ represents the fixed grounding resistance, and $R_0, R_1$ represent 
 
 ## Repository Structure
 * `/scripts`: Contains the MATLAB parameter initialization, plotting utilities, and core tracking algorithm.
-* `/model`: Contains the `.slx` Simulink block design workspace.
 * `/docs`: Project documentation and schematic references.
+
+---
 
 ## How to Run the Simulation
 1. Open MATLAB and navigate to the root directory of this repository.
-2. Run `scripts/init_tracker_params.m` to load the mechanical, electrical, and control parameters into the base workspace.
-3. Open `model/solar_tracker_system.slx` and click **Run**.
-4. Execute `scripts/plot_results.m` to generate the system response graphs.
+2. Open the `scripts/` folder.
+3. Run `run_simulation.m` to load parameters, execute the core closed-loop physical model, and automatically output the performance graphs.
